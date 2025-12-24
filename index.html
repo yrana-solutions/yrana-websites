@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Yrana Web Solutions</title>
 
-  <!-- Google Font -->
+  <!-- Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
+    :root {
+      --primary: #2563eb;
+      --dark: #0f172a;
+      --muted: #475569;
+      --bg: #f8fafc;
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -19,93 +26,107 @@
 
     body {
       font-family: 'Inter', system-ui, sans-serif;
-      color: #0f172a;
-      background: #ffffff;
+      color: var(--dark);
+      background: white;
       line-height: 1.6;
     }
 
-    /* Layout */
     section {
-      max-width: 900px;
+      max-width: 1000px;
       margin: auto;
-      padding: 50px 20px;
-    }
-
-    /* Hero */
-    .hero {
-      text-align: center;
       padding: 70px 20px;
     }
 
+    /* HERO */
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      background:
+        linear-gradient(rgba(15,23,42,0.75), rgba(15,23,42,0.75)),
+        url("https://images.unsplash.com/photo-1522202176988-66273c2fd55f");
+      background-size: cover;
+      background-position: center;
+    }
+
     .hero h1 {
-      font-size: 44px;
+      font-size: 52px;
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+
+    .hero p {
+      font-size: 20px;
+      max-width: 650px;
+      margin: auto;
+      color: #e5e7eb;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 26px;
+      padding: 14px 30px;
+      background: var(--primary);
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: 600;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-4px) scale(1.03);
+      box-shadow: 0 15px 30px rgba(37,99,235,0.4);
+    }
+
+    h2 {
+      font-size: 34px;
       font-weight: 700;
       margin-bottom: 12px;
     }
 
-    .hero p {
-      font-size: 18px;
-      color: #475569;
-      max-width: 600px;
-      margin: auto;
-    }
-
-    /* Headings */
-    h2 {
-      font-size: 28px;
-      font-weight: 600;
-      margin-bottom: 12px;
-    }
-
     p {
-      color: #475569;
+      color: var(--muted);
+      font-size: 17px;
+      max-width: 750px;
     }
 
     ul {
-      margin-top: 12px;
-      padding-left: 20px;
+      margin-top: 16px;
+      padding-left: 22px;
     }
 
     li {
-      margin-bottom: 8px;
+      margin-bottom: 10px;
+      font-size: 17px;
+      color: var(--muted);
     }
 
-    /* Buttons */
-    .button {
-      display: inline-block;
-      margin-top: 18px;
-      padding: 12px 22px;
-      background: #0f172a;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: 500;
-      transition: transform 0.2s ease, opacity 0.2s ease;
+    .alt {
+      background: var(--bg);
+      border-radius: 24px;
     }
 
-    .button:hover {
-      transform: translateY(-2px);
-      opacity: 0.9;
-    }
-
-    /* Animations */
-    .fade-up {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.6s ease-out;
-    }
-
-    .fade-up.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Footer */
     footer {
       text-align: center;
-      padding: 30px 20px;
-      font-size: 14px;
+      padding: 40px 20px;
       color: #64748b;
+      font-size: 14px;
+    }
+
+    /* ANIMATIONS */
+    .animate {
+      opacity: 0;
+      transform: translateY(40px) scale(0.96);
+      transition: all 0.9s cubic-bezier(.22,1,.36,1);
+    }
+
+    .animate.show {
+      opacity: 1;
+      transform: translateY(0) scale(1);
     }
   </style>
 </head>
@@ -113,56 +134,61 @@
 <body>
 
   <!-- HERO -->
-  <section class="hero fade-up">
-    <h1>Yrana Web Solutions</h1>
-    <p>I build clean, professional websites for local businesses that need a strong online presence.</p>
-    <a href="#contact" class="button">Get a Free Demo</a>
+  <section class="hero">
+    <div class="animate">
+      <h1>Yrana Web Solutions</h1>
+      <p>
+        I build modern, high quality websites for local businesses that need
+        a strong and trustworthy online presence.
+      </p>
+      <a href="#contact" class="button">Get a Free Demo</a>
+    </div>
   </section>
 
   <!-- WHAT I DO -->
-  <section class="fade-up">
+  <section class="animate">
     <h2>What I Do</h2>
     <p>
-      I design simple, modern websites for businesses that don’t have a website or are using an outdated one.
-      My focus is clarity, speed, and results — not clutter.
+      I help small and local businesses upgrade their online image with clean,
+      fast, mobile friendly websites designed to convert visitors into customers.
     </p>
   </section>
 
   <!-- HOW IT WORKS -->
-  <section class="fade-up">
+  <section class="alt animate">
     <h2>How It Works</h2>
     <ul>
-      <li>You contact me with your business details</li>
-      <li>I create a free homepage demo</li>
-      <li>You only pay if you like it</li>
+      <li>You contact me with your business info</li>
+      <li>I design a free homepage demo</li>
+      <li>You only pay if you are happy with it</li>
     </ul>
   </section>
 
   <!-- SERVICES -->
-  <section class="fade-up">
-    <h2>Optional Add-Ons</h2>
+  <section class="animate">
+    <h2>Optional Add Ons</h2>
     <ul>
       <li>24/7 AI phone call assistant to answer customer calls</li>
-      <li>Contact forms with email notifications</li>
-      <li>Basic SEO setup</li>
+      <li>Contact forms with instant email notifications</li>
+      <li>Basic SEO and Google readiness</li>
     </ul>
   </section>
 
   <!-- PRICING -->
-  <section class="fade-up">
-    <h2>Pricing & Payment</h2>
+  <section class="alt animate">
+    <h2>Pricing and Payment</h2>
     <p>
-      Pricing depends on the size and needs of your site.
-      Payments are accepted via <strong>PayPal</strong> or <strong>Interac e-Transfer</strong>.
+      Pricing depends on your website needs and size.
+      Payments are accepted via PayPal or Interac e Transfer.
     </p>
   </section>
 
   <!-- CONTACT -->
-  <section id="contact" class="fade-up">
+  <section id="contact" class="animate">
     <h2>Contact</h2>
     <p>
-      Email me to get started:<br>
-      <strong>your-email@example.com</strong>
+      Email me to get started:<br><br>
+      <strong>yrana.solutions@gmail.com</strong>
     </p>
   </section>
 
@@ -170,7 +196,7 @@
     © 2025 Yrana Web Solutions
   </footer>
 
-  <!-- Scroll Animation Script -->
+  <!-- Animation Script -->
   <script>
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -178,11 +204,9 @@
           entry.target.classList.add('show');
         }
       });
-    }, { threshold: 0.15 });
+    }, { threshold: 0.2 });
 
-    document.querySelectorAll('.fade-up').forEach(el => {
-      observer.observe(el);
-    });
+    document.querySelectorAll('.animate').forEach(el => observer.observe(el));
   </script>
 
 </body>
