@@ -1,213 +1,242 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Yrana Web Solutions</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Yrana Web Solutions</title>
 
-  <!-- Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <style>
-    :root {
-      --primary: #2563eb;
-      --dark: #0f172a;
-      --muted: #475569;
-      --bg: #f8fafc;
-    }
+<style>
+:root {
+  --primary:#2563eb;
+  --dark:#0f172a;
+  --muted:#64748b;
+  --bg:#f8fafc;
+  --radius:18px;
+}
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+* { box-sizing:border-box; margin:0; padding:0; }
 
-    body {
-      font-family: 'Inter', system-ui, sans-serif;
-      color: var(--dark);
-      background: white;
-      line-height: 1.6;
-    }
+body {
+  font-family:Inter,system-ui,sans-serif;
+  background:white;
+  color:var(--dark);
+  overflow-x:hidden;
+}
 
-    section {
-      max-width: 1000px;
-      margin: auto;
-      padding: 70px 20px;
-    }
+/* SIDE MENU */
+.menu-btn {
+  position:fixed;
+  top:20px;
+  left:20px;
+  z-index:1001;
+  font-size:28px;
+  cursor:pointer;
+}
 
-    /* HERO */
-    .hero {
-      min-height: 90vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: white;
-      background:
-        linear-gradient(rgba(15,23,42,0.75), rgba(15,23,42,0.75)),
-        url("https://images.unsplash.com/photo-1522202176988-66273c2fd55f");
-      background-size: cover;
-      background-position: center;
-    }
+nav {
+  position:fixed;
+  top:0;
+  left:-260px;
+  width:240px;
+  height:100vh;
+  background:var(--dark);
+  padding:60px 20px;
+  transition:0.5s cubic-bezier(.22,1,.36,1);
+  z-index:1000;
+  border-radius:0 30px 30px 0;
+}
 
-    .hero h1 {
-      font-size: 52px;
-      font-weight: 800;
-      margin-bottom: 14px;
-    }
+nav a {
+  display:block;
+  color:white;
+  text-decoration:none;
+  font-size:18px;
+  margin-bottom:20px;
+}
 
-    .hero p {
-      font-size: 20px;
-      max-width: 650px;
-      margin: auto;
-      color: #e5e7eb;
-    }
+nav.open { left:0; }
 
-    .button {
-      display: inline-block;
-      margin-top: 26px;
-      padding: 14px 30px;
-      background: var(--primary);
-      color: white;
-      text-decoration: none;
-      border-radius: 10px;
-      font-weight: 600;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-    }
+/* HERO */
+.hero {
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  background:
+    linear-gradient(rgba(15,23,42,.8),rgba(15,23,42,.8)),
+    url("https://images.unsplash.com/photo-1522202176988-66273c2fd55f");
+  background-size:cover;
+  background-position:center;
+  color:white;
+}
 
-    .button:hover {
-      transform: translateY(-4px) scale(1.03);
-      box-shadow: 0 15px 30px rgba(37,99,235,0.4);
-    }
+.hero h1 {
+  font-size:56px;
+  font-weight:800;
+  animation:pop 1.2s cubic-bezier(.22,1,.36,1);
+}
 
-    h2 {
-      font-size: 34px;
-      font-weight: 700;
-      margin-bottom: 12px;
-    }
+.hero p {
+  font-size:20px;
+  max-width:640px;
+  margin:16px auto;
+  color:#e5e7eb;
+  animation:fadeUp 1.4s ease forwards;
+}
 
-    p {
-      color: var(--muted);
-      font-size: 17px;
-      max-width: 750px;
-    }
+.button {
+  display:inline-block;
+  margin-top:30px;
+  padding:16px 36px;
+  background:var(--primary);
+  color:white;
+  border-radius:999px;
+  text-decoration:none;
+  font-weight:600;
+  transition:0.3s;
+  animation:fadeUp 1.6s ease forwards;
+}
 
-    ul {
-      margin-top: 16px;
-      padding-left: 22px;
-    }
+.button:hover {
+  transform:translateY(-6px) scale(1.05);
+  box-shadow:0 20px 40px rgba(37,99,235,.4);
+}
 
-    li {
-      margin-bottom: 10px;
-      font-size: 17px;
-      color: var(--muted);
-    }
+/* SECTIONS */
+section {
+  max-width:1000px;
+  margin:auto;
+  padding:80px 20px;
+}
 
-    .alt {
-      background: var(--bg);
-      border-radius: 24px;
-    }
+.alt {
+  background:var(--bg);
+  border-radius:var(--radius);
+}
 
-    footer {
-      text-align: center;
-      padding: 40px 20px;
-      color: #64748b;
-      font-size: 14px;
-    }
+h2 {
+  font-size:36px;
+  margin-bottom:14px;
+}
 
-    /* ANIMATIONS */
-    .animate {
-      opacity: 0;
-      transform: translateY(40px) scale(0.96);
-      transition: all 0.9s cubic-bezier(.22,1,.36,1);
-    }
+p, li {
+  color:var(--muted);
+  font-size:17px;
+}
 
-    .animate.show {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-  </style>
+ul { margin-top:18px; padding-left:20px; }
+
+li { margin-bottom:10px; }
+
+/* ANIMATIONS */
+.reveal {
+  opacity:0;
+  transform:translateY(60px) scale(.95);
+  transition:1s cubic-bezier(.22,1,.36,1);
+}
+
+.reveal.show {
+  opacity:1;
+  transform:none;
+}
+
+footer {
+  text-align:center;
+  padding:40px;
+  color:#64748b;
+  font-size:14px;
+}
+
+/* KEYFRAMES */
+@keyframes fadeUp {
+  from {opacity:0; transform:translateY(40px);}
+  to {opacity:1; transform:none;}
+}
+
+@keyframes pop {
+  from {opacity:0; transform:scale(.9);}
+  to {opacity:1; transform:scale(1);}
+}
+</style>
 </head>
 
 <body>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="animate">
-      <h1>Yrana Web Solutions</h1>
-      <p>
-        I build modern, high quality websites for local businesses that need
-        a strong and trustworthy online presence.
-      </p>
-      <a href="#contact" class="button">Get a Free Demo</a>
-    </div>
-  </section>
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
 
-  <!-- WHAT I DO -->
-  <section class="animate">
-    <h2>What I Do</h2>
-    <p>
-      I help small and local businesses upgrade their online image with clean,
-      fast, mobile friendly websites designed to convert visitors into customers.
-    </p>
-  </section>
+<nav id="menu">
+  <a href="/">Home</a>
+  <a href="demo.html">Get a Free Demo</a>
+  <a href="#pricing">Pricing</a>
+  <a href="#contact">Contact</a>
+</nav>
 
-  <!-- HOW IT WORKS -->
-  <section class="alt animate">
-    <h2>How It Works</h2>
-    <ul>
-      <li>You contact me with your business info</li>
-      <li>I design a free homepage demo</li>
-      <li>You only pay if you are happy with it</li>
-    </ul>
-  </section>
+<section class="hero">
+  <div>
+    <h1>Yrana Web Solutions</h1>
+    <p>Modern websites for local businesses that want more customers and credibility.</p>
+    <a href="demo.html" class="button">Get a Free Demo</a>
+  </div>
+</section>
 
-  <!-- SERVICES -->
-  <section class="animate">
-    <h2>Optional Add Ons</h2>
-    <ul>
-      <li>24/7 AI phone call assistant to answer customer calls</li>
-      <li>Contact forms with instant email notifications</li>
-      <li>Basic SEO and Google readiness</li>
-    </ul>
-  </section>
+<section class="reveal">
+  <h2>What I Do</h2>
+  <p>I design clean, fast, mobile friendly websites that make small businesses look professional and trustworthy.</p>
+</section>
 
-  <!-- PRICING -->
-  <section class="alt animate">
-    <h2>Pricing and Payment</h2>
-    <p>
-      Pricing depends on your website needs and size.
-      Payments are accepted via PayPal or Interac e Transfer.
-    </p>
-  </section>
+<section class="alt reveal">
+  <h2>How It Works</h2>
+  <ul>
+    <li>You request a free demo</li>
+    <li>I build a homepage example</li>
+    <li>You only pay if you like it</li>
+  </ul>
+</section>
 
-  <!-- CONTACT -->
-  <section id="contact" class="animate">
-    <h2>Contact</h2>
-    <p>
-      Email me to get started:<br><br>
-      <strong>yrana.solutions@gmail.com</strong>
-    </p>
-  </section>
+<section class="reveal">
+  <h2>Optional Add Ons</h2>
+  <ul>
+    <li>24/7 AI phone call assistant</li>
+    <li>Email contact forms</li>
+    <li>SEO setup</li>
+  </ul>
+</section>
 
-  <footer>
-    © 2025 Yrana Web Solutions
-  </footer>
+<section id="pricing" class="alt reveal">
+  <h2>Pricing and Payment</h2>
+  <p>
+    Pricing depends on your project size.<br><br>
+    Payments via
+    <a href="https://www.paypal.com" target="_blank">PayPal</a>
+    or
+    <a href="https://www.interac.ca" target="_blank">Interac e Transfer</a>.
+    Contact me to arrange payment.
+  </p>
+</section>
 
-  <!-- Animation Script -->
-  <script>
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
-        }
-      });
-    }, { threshold: 0.2 });
+<section id="contact" class="reveal">
+  <h2>Contact</h2>
+  <p>Email: <strong>yrana.solutions@gmail.com</strong></p>
+</section>
 
-    document.querySelectorAll('.animate').forEach(el => observer.observe(el));
-  </script>
+<footer>© 2025 Yrana Web Solutions</footer>
+
+<script>
+function toggleMenu() {
+  document.getElementById('menu').classList.toggle('open');
+}
+
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting) e.target.classList.add('show');
+  });
+},{threshold:.2});
+
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+</script>
 
 </body>
 </html>
