@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yrana Web Solutions</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      color: #0f172a;
+      background: #ffffff;
+      line-height: 1.6;
+    }
+
+    /* Layout */
+    section {
+      max-width: 900px;
+      margin: auto;
+      padding: 50px 20px;
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 70px 20px;
+    }
+
+    .hero h1 {
+      font-size: 44px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #475569;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    /* Headings */
+    h2 {
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    p {
+      color: #475569;
+    }
+
+    ul {
+      margin-top: 12px;
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    /* Buttons */
+    .button {
+      display: inline-block;
+      margin-top: 18px;
+      padding: 12px 22px;
+      background: #0f172a;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 500;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      opacity: 0.9;
+    }
+
+    /* Animations */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease-out;
+    }
+
+    .fade-up.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 14px;
+      color: #64748b;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HERO -->
+  <section class="hero fade-up">
+    <h1>Yrana Web Solutions</h1>
+    <p>I build clean, professional websites for local businesses that need a strong online presence.</p>
+    <a href="#contact" class="button">Get a Free Demo</a>
+  </section>
+
+  <!-- WHAT I DO -->
+  <section class="fade-up">
+    <h2>What I Do</h2>
+    <p>
+      I design simple, modern websites for businesses that don’t have a website or are using an outdated one.
+      My focus is clarity, speed, and results — not clutter.
+    </p>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="fade-up">
+    <h2>How It Works</h2>
+    <ul>
+      <li>You contact me with your business details</li>
+      <li>I create a free homepage demo</li>
+      <li>You only pay if you like it</li>
+    </ul>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="fade-up">
+    <h2>Optional Add-Ons</h2>
+    <ul>
+      <li>24/7 AI phone call assistant to answer customer calls</li>
+      <li>Contact forms with email notifications</li>
+      <li>Basic SEO setup</li>
+    </ul>
+  </section>
+
+  <!-- PRICING -->
+  <section class="fade-up">
+    <h2>Pricing & Payment</h2>
+    <p>
+      Pricing depends on the size and needs of your site.
+      Payments are accepted via <strong>PayPal</strong> or <strong>Interac e-Transfer</strong>.
+    </p>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="fade-up">
+    <h2>Contact</h2>
+    <p>
+      Email me to get started:<br>
+      <strong>your-email@example.com</strong>
+    </p>
+  </section>
+
+  <footer>
+    © 2025 Yrana Web Solutions
+  </footer>
+
+  <!-- Scroll Animation Script -->
+  <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.fade-up').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+
+</body>
+</html>
