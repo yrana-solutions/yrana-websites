@@ -14,18 +14,21 @@ body {
   padding:40px;
 }
 
-form <form action="https://formspree.io/f/mqezjwzb" method="POST">
-  <h1>Request a Free Demo</h1>
-
-  <input type="text" name="business_name" placeholder="Business Name" required>
-  <input type="email" name="email" placeholder="Your Email" required>
-  <input type="text" name="industry" placeholder="Type of Business">
-
-  <textarea name="details" placeholder="Tell me what you need"></textarea>
-
-  <button type="submit">Send Request</button>
+<form
+  action="https://formspree.io/f/mqezjwzb"
+  method="POST"
+>
+  <label>
+    Your email:
+    <input type="email" name="email">
+  </label>
+  <label>
+    Your message:
+    <textarea name="message"></textarea>
+  </label>
+  <!-- your other form fields go here -->
+  <button type="submit">Send</button>
 </form>
-
 
 h1 {
   margin-bottom:20px;
